@@ -1,0 +1,9 @@
+{
+	"name": "acme_microservices_hld",
+	"subcomponents": [
+		{
+			"name": "infra",
+			"source": "./infra"
+		}
+	]
+}
