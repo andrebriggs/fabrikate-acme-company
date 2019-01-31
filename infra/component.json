@@ -2,7 +2,7 @@
     "name": "cloud-native-infra",
     "subcomponents": [
         {
-            "name": "cloud-native-infra-stack",
+            "name": "cloud-native-infra-stack-new",
             "source": "https://github.com/timfpark/fabrikate-cloud-native",
             "method": "git"
         }
