@@ -16,4 +16,17 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    wget https://github.com/garethr/kubeval/releases/download/0.7.3/kubeval-linux-amd64.tar.gz
+    tar xf kubeval-linux-amd64.tar.gz
+    ls -al
+    chmod +x ./kubeval
+    YMLVALIDATIONRESULT=0;
+    for f in `find . -type f -name "*.yml"  ! -name 'azure-pipelines.yml'`;
+    do echo $f; ./kubeval $f 
+      RESULT=$? 
+      if [ $RESULT == 1 ] 
+        then YMLVALIDATIONRESULT=1  
+      fi 
+    done
+    exit $YMLVALIDATIONRESULT
   displayName: 'Run a multi-line script'
